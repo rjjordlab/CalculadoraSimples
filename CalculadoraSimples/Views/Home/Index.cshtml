@@ -1,0 +1,43 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Calculadora Simples</title>
+</head>
+<body>
+    <div>
+        <h1 style="color:red">Calculadora Simples</h1>
+        <form method="post">
+            operando 1: <input type="text" name="operando1" value="@ViewBag.Operando1"/> <br />
+            operador:
+            @{ 
+                string mais = "", menos = "", vezes = "", divisao = "";
+                switch (ViewBag.Operador)
+                {
+                    case "+": mais = "selected"; break;
+                    case "-": menos = "selected"; break;
+                    case "x": vezes = "selected"; break;
+                    case ":": divisao = "selected"; break;
+                }
+                }
+            <select  name="operador">
+                <option @mais>+</option>
+                <option @menos>-</option>
+                <option @vezes>x</option>
+                <option @divisao>:</option>
+            </select>
+            <br />
+            operando 2: <input type="text" name="operando2" value="@ViewBag.Operando2"/> <br />
+            <input type="submit" value="    CALCULAR    " />
+        </form>
+        <br />
+        <br />
+        Resultado: <b>  @ViewBag.Resultado  </b>
+    </div>
+</body>
+</html>
